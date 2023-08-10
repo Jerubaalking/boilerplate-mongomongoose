@@ -5,7 +5,6 @@ try {
   mongoose = require("mongoose");
   console.log(process.env.MONGO_URI);
   const connection = mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-  connection.then(async ans => console.log(await ans)).finally(async ans => console.log('finally ==>>', await ans)).catch(err => console.log('err ===>>', err));
 } catch (e) {
   console.log(e);
 }
