@@ -5,7 +5,15 @@
 
 const express = require("express");
 const app = express();
-
+require('dotenv').config();
+let mongoose;
+try {
+  mongoose = require("mongoose");
+  console.log(process.env.MONGO_URI);
+  mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+} catch (e) {
+  console.log(e);
+}
 const fs = require("fs");
 const path = require("path");
 const bodyParser = require("body-parser");
